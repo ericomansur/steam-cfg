@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eric Verstappen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/jpg" href="edo.jpg">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="preloader-logo">
+    <svg width="180" height="180" viewBox="0 0 180 180" class="logo-svg">
+      <defs>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <circle cx="90" cy="90" r="82" fill="none" stroke="#e10600" stroke-width="1.5" opacity="0.3"/>
+      <circle cx="90" cy="90" r="74" fill="none" stroke="#e10600" stroke-width="0.5" opacity="0.15"/>
+      <circle cx="90" cy="90" r="82" fill="none" stroke="#e10600" stroke-width="1.5"
+        stroke-dasharray="20 10" opacity="0.6" filter="url(#glow)">
+        <animateTransform attributeName="transform" type="rotate" from="0 90 90" to="360 90 90" dur="6s" repeatCount="indefinite"/>
+      </circle>
+      <!-- E — ajustado para centralizar o bloco E+V dentro do círculo -->
+      <rect x="34" y="52" width="5" height="56" fill="#e10600" filter="url(#glow)"/>
+      <rect x="34" y="52" width="36" height="5" fill="#e10600"/>
+      <rect x="34" y="76" width="26" height="4" fill="#e10600"/>
+      <rect x="34" y="103" width="36" height="5" fill="#e10600"/>
+      <!-- V -->
+      <path d="M84 52 L102 108 L120 52" stroke="#ffffff" stroke-width="5.5" fill="none" stroke-linecap="square" stroke-linejoin="miter"/>
+      <!-- underline accent -->
+      <rect x="34" y="122" width="86" height="2" fill="#e10600" opacity="0.4"/>
+    </svg>
+  </div>
+  <div class="preloader-track" style="position:relative;">
+    <div class="preloader-car" style="position:absolute; bottom:2px;">
+      <svg width="48" height="18" viewBox="0 0 48 18">
+        <rect x="8" y="5" width="32" height="8" rx="2" fill="#e10600"/>
+        <rect x="14" y="2" width="20" height="6" rx="1" fill="#cc0000"/>
+        <ellipse cx="10" cy="14" rx="4" ry="4" fill="#222"/>
+        <ellipse cx="10" cy="14" rx="2" ry="2" fill="#555"/>
+        <ellipse cx="38" cy="14" rx="4" ry="4" fill="#222"/>
+        <ellipse cx="38" cy="14" rx="2" ry="2" fill="#555"/>
+        <rect x="2" y="7" width="6" height="4" rx="1" fill="#e10600"/>
+        <rect x="40" y="7" width="6" height="4" rx="1" fill="#e10600"/>
+        <rect x="20" y="1" width="8" height="3" rx="1" fill="#e10600"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <div class="nav-logo">EV</div>
+  <div class="nav-links">
+    <a href="#setup">Setup</a>
+    <a href="#config">Config</a>
+    <a href="#stream">Stream</a>
+    <a href="#social">Social</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="grid-bg"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">CS2 Player</div>
+    <div class="hero-name">
+      <svg width="min(600px, 90vw)" height="clamp(80px, 14vw, 160px)" viewBox="0 0 600 140" style="overflow: visible;">
+        <defs>
+          <linearGradient id="nameGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#ffffff"/>
+            <stop offset="100%" style="stop-color:#e8e8e8"/>
+          </linearGradient>
+        </defs>
+        <text x="0" y="90" font-family="Orbitron, monospace" font-size="84" font-weight="900" fill="url(#nameGrad)" letter-spacing="-2">ERIC</text>
+        <text x="2" y="138" font-family="Orbitron, monospace" font-size="50" font-weight="900" fill="url(#nameGrad)" letter-spacing="1">VERSTAPPEN</text>
+        <circle cx="0" cy="108" r="5" fill="#e10600">
+          <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+    </div>
+    <div class="hero-tag">Brazil · CS2 · Twitch</div>
+  </div>
+
+  <!-- F1 Car -->
+  <div class="f1-car-container">
+    <div class="speed-lines">
+      <div class="speed-line" style="top:10px; animation-delay:0s; animation-duration:0.7s;"></div>
+      <div class="speed-line" style="top:20px; animation-delay:0.15s; animation-duration:0.5s;"></div>
+      <div class="speed-line" style="top:30px; animation-delay:0.05s; animation-duration:0.8s;"></div>
+      <div class="speed-line" style="top:42px; animation-delay:0.3s; animation-duration:0.6s;"></div>
+      <div class="speed-line" style="top:50px; animation-delay:0.1s; animation-duration:0.9s;"></div>
+    </div>
+    <div class="f1-car-wrap">
+      <svg width="560" height="170" viewBox="0 0 560 170">
+        <defs>
+          <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#1a1f6e"/>
+            <stop offset="55%" stop-color="#1e2480"/>
+            <stop offset="100%" stop-color="#0f1450"/>
+          </linearGradient>
+          <linearGradient id="noseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#1e2480"/>
+            <stop offset="100%" stop-color="#0a0e3a"/>
+          </linearGradient>
+          <filter id="bodyGlow">
+            <feGaussianBlur stdDeviation="2" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <radialGradient id="tireGrad" cx="40%" cy="35%" r="60%">
+            <stop offset="0%" stop-color="#2a2a2a"/>
+            <stop offset="100%" stop-color="#0a0a0a"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="280" cy="158" rx="200" ry="10" fill="rgba(0,0,0,0.6)"/>
+        <rect x="22" y="48" width="72" height="9" rx="1" fill="#1a1f6e"/>
+        <rect x="22" y="39" width="72" height="8" rx="1" fill="#1e2480"/>
+        <rect x="22" y="40" width="72" height="2" fill="#ffd700"/>
+        <rect x="20" y="38" width="6" height="22" rx="1" fill="#0f1450"/>
+        <rect x="90" y="38" width="6" height="22" rx="1" fill="#0f1450"/>
+        <rect x="22" y="55" width="72" height="3" fill="#e10600"/>
+        <rect x="44" y="57" width="5" height="20" fill="#1a1f6e"/>
+        <rect x="67" y="57" width="5" height="20" fill="#1a1f6e"/>
+        <!-- === MAIN BODY === -->
+        <path d="M80 98 L95 72 L155 62 L210 58 L290 56 L360 58 L415 68 L455 84 L468 98 L455 110 L400 116 L290 120 L210 120 L95 116 Z"
+          fill="url(#bodyGrad)" filter="url(#bodyGlow)"/>
+
+        <!-- Red sidepod stripe left -->
+        <path d="M95 116 L95 90 L130 75 L155 70 L155 118 Z" fill="#e10600" opacity="0.85"/>
+        <!-- Yellow pinstripe on left sidepod -->
+        <path d="M97 116 L97 91 L131 76 L133 76 L133 118 Z" fill="#ffd700" opacity="0.7"/>
+
+        <!-- Red sidepod stripe right -->
+        <path d="M370 68 L400 78 L400 116 L370 118 Z" fill="#e10600" opacity="0.85"/>
+
+        <!-- Top body yellow accent stripe -->
+        <path d="M155 62 L210 58 L290 56 L360 58 L365 60 L290 58 L210 60 L158 64 Z" fill="#ffd700" opacity="0.6"/>
+
+        <!-- === COCKPIT === -->
+        <path d="M220 58 L240 34 L290 31 L320 34 L340 58" fill="#131852"/>
+        <path d="M228 58 L246 38 L290 35 L334 38 L332 58" fill="#0a0d2e"/>
+        <!-- Cockpit rim highlight -->
+        <path d="M228 58 L246 38 L290 35 L334 38 L332 58" fill="none" stroke="#ffd700" stroke-width="1.5" opacity="0.5"/>
+
+        <!-- === HALO === -->
+        <path d="M240 52 Q265 24 290 52" stroke="#c0c0c0" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path d="M240 52 Q265 24 290 52" stroke="#888" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+        <!-- === NOSE / FRONT === -->
+        <path d="M390 68 L500 88 L490 100 L455 110 L415 100 Z" fill="url(#noseGrad)"/>
+        <!-- Nose yellow line -->
+        <path d="M400 72 L500 89" stroke="#ffd700" stroke-width="1.5" opacity="0.7"/>
+        <!-- Nose tip -->
+        <path d="M490 88 L525 90 L490 96 Z" fill="#0a0e3a"/>
+
+        <!-- === FRONT WING === -->
+        <!-- Main plane wide -->
+        <rect x="455" y="108" width="80" height="7" rx="1" fill="#1a1f6e"/>
+        <!-- cascade -->
+        <rect x="440" y="113" width="98" height="5" rx="1" fill="#131852"/>
+        <!-- endplates -->
+        <rect x="438" y="106" width="6" height="15" rx="1" fill="#0f1450"/>
+        <rect x="534" y="106" width="6" height="15" rx="1" fill="#0f1450"/>
+        <!-- front wing red accent -->
+        <rect x="455" y="108" width="80" height="2" fill="#e10600"/>
+
+        <!-- === FLOOR / DIFFUSER === -->
+        <rect x="100" y="118" width="350" height="6" rx="1" fill="#131852"/>
+        <rect x="110" y="122" width="330" height="4" rx="1" fill="#0a0e3a"/>
+
+        <!-- === TIRES === -->
+        <!-- Left rear (big) -->
+        <ellipse cx="128" cy="122" rx="30" ry="30" fill="url(#tireGrad)"/>
+        <ellipse cx="128" cy="122" rx="22" ry="22" fill="#111"/>
+        <!-- Pirelli yellow band -->
+        <ellipse cx="128" cy="122" rx="30" ry="30" fill="none" stroke="#ffd700" stroke-width="3" stroke-dasharray="8 4" opacity="0.5"/>
+        <ellipse cx="128" cy="122" rx="9" ry="9" fill="#1a1f6e"/>
+        <ellipse cx="128" cy="122" rx="4" ry="4" fill="#e10600"/>
+
+        <!-- Right rear -->
+        <ellipse cx="378" cy="122" rx="28" ry="28" fill="url(#tireGrad)"/>
+        <ellipse cx="378" cy="122" rx="20" ry="20" fill="#111"/>
+        <ellipse cx="378" cy="122" rx="28" ry="28" fill="none" stroke="#ffd700" stroke-width="3" stroke-dasharray="8 4" opacity="0.5"/>
+        <ellipse cx="378" cy="122" rx="8" ry="8" fill="#1a1f6e"/>
+        <ellipse cx="378" cy="122" rx="3.5" ry="3.5" fill="#e10600"/>
+
+
+        <!-- === EV NUMBER === -->
+        <text x="255" y="76" font-family="Orbitron, monospace" font-size="20" font-weight="900" fill="#ffffff" opacity="0.95" letter-spacing="2">EV</text>
+
+        <!-- === EXHAUST GLOW === -->
+        <ellipse cx="84" cy="98" rx="12" ry="5" fill="rgba(255,140,0,0.5)">
+          <animate attributeName="rx" values="8;18;8" dur="0.25s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.7;0.15;0.7" dur="0.25s" repeatCount="indefinite"/>
+        </ellipse>
+        <line x1="80" y1="150" x2="530" y2="150" stroke="rgba(30,36,128,0.3)" stroke-width="1"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</div>
+
+<!-- SETUP -->
+<div class="divider"></div>
+<section id="setup">
+  <div class="section-label">Peripherals &amp; PC</div>
+  <div class="setup-grid">
+
+    <div class="setup-card">
+      <div class="setup-card-title">Periféricos</div>
+      <div class="setup-item">
+        <span class="setup-item-label">Monitor</span>
+        <a href="https://www.kabum.com.br/produto/114411/monitor-gamer-ozone-24-5-full-hd-144hz-1ms-displayport-e-hdmi-freesync-preto-ozdsp25fhd" target="_blank" class="setup-item-value setup-link">Ozone 144hz 24,5"</a>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">Mouse</span>
+        <a href="https://www.amazon.com.br/Mouse-Gamer-Logitech-G403-Hero/dp/B07W6PD7QJ/" target="_blank" class="setup-item-value setup-link">Logitech G403</a>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">Mousepad</span>
+        <a href="https://www.kabum.com.br/produto/371590/mousepad-gamer-hyperx-pulsefire-mat-grande-400x450mm-hmpm1-l-4z7x4aa" target="_blank" class="setup-item-value setup-link">HyperX Pulsefire S</a>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">Teclado</span>
+        <a href="https://www.amazon.com.br/Teclado-Magn%C3%A9tico-Redragon-K552RGB-PRO-PT-BROWN/dp/B0DY823WBW/" target="_blank" class="setup-item-value setup-link">Redragon Kumara</a>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">Headset</span>
+        <a href="https://www.amazon.com.br/Logitech-LIGHTSPEED-Bluetooth-Confort%C3%A1vel-Microfone/dp/B08R8DQDRK/" target="_blank" class="setup-item-value setup-link">Logitech G435</a>
+      </div>
+    </div>
+
+    <div class="setup-card">
+      <div class="setup-card-title">PC</div>
+      <div class="setup-item">
+        <span class="setup-item-label">CPU</span>
+        <a href="https://www.amazon.com.br/PROCESSADOR-AMD-5700X-100-100000926WOF-Cer%C3%A2mica/dp/B09VCHQHZ6/" target="_blank" class="setup-item-value setup-link">AMD Ryzen 7 5700x</a>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">GPU</span>
+        <a href="https://www.amazon.com.br/Placa-Video-MSI-Shadow-GDDR7-912-V537-037/dp/B09729YMPT/" target="_blank" class="setup-item-value setup-link">RTX 5060</a>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">RAM</span>
+        <a href="https://www.kabum.com.br/produto/921680/memoria-ram-kingston-fury-beast-16gb-3200mt-s-ddr4-cl16-dimm-1gx8-preto-kf432c16bb1-16wp" target="_blank" class="setup-item-value setup-link">32GB (2x16) DDR4 3600MHz</a>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">SSD</span>
+        <a href="https://www.amazon.com.br/Kingston-2280-NVMe-SNV3S-1000G/dp/B0DBR3DZWG/" target="_blank" class="setup-item-value setup-link">Kingston NV3 1TB M.2</a>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">PSU</span>
+        <a href="https://www.amazon.com.br/Fonte-650w-Msi-Mag-A650bn/dp/B0991TZ399/" target="_blank" class="setup-item-value setup-link">MSI MAG 650W</a>
+      </div>
+    </div>
+
+    <div class="setup-card">
+      <div class="setup-card-title">Mouse Settings</div>
+      <div class="setup-item">
+        <span class="setup-item-label">DPI</span>
+        <span class="setup-item-value">800</span>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">Sens. CS2</span>
+        <span class="setup-item-value">0.7</span>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">eDPI</span>
+        <span class="setup-item-value">560</span>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">Polling Rate</span>
+        <span class="setup-item-value">1000Hz</span>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">Raw Input</span>
+        <span class="setup-item-value">On</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONFIG -->
+<div class="divider"></div>
+<section id="config">
+  <div class="section-label">In-Game Config</div>
+
+  <div class="setup-grid" style="margin-bottom: 40px;">
+    <div class="setup-card">
+      <div class="setup-card-title">Video Settings</div>
+      <div class="setup-item">
+        <span class="setup-item-label">Resolution</span>
+        <span class="setup-item-value">1280×960 Stretched</span>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">Aspect Ratio</span>
+        <span class="setup-item-value">4:3</span>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">Brightness</span>
+        <span class="setup-item-value">110%</span>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">Display Mode</span>
+        <span class="setup-item-value">Fullscreen</span>
+      </div>
+    </div>
+
+    <div class="setup-card">
+      <div class="setup-card-title">Crosshair</div>
+      <div class="setup-item">
+        <span class="setup-item-label">Style</span>
+        <span class="setup-item-value">Classic Static</span>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">Length</span>
+        <span class="setup-item-value">1</span>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">Thickness</span>
+        <span class="setup-item-value">1</span>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">Gap</span>
+        <span class="setup-item-value">-4</span>
+      </div>
+    </div>
+
+    <div class="setup-card">
+      <div class="setup-card-title">Audio / View</div>
+      <div class="setup-item">
+        <span class="setup-item-label">FOV</span>
+        <span class="setup-item-value">68</span>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">Viewmodel</span>
+        <span class="setup-item-value">Desktop</span>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">cl_righthand</span>
+        <span class="setup-item-value">1</span>
+      </div>
+      <div class="setup-item">
+        <span class="setup-item-label">Volume</span>
+        <span class="setup-item-value">0.7</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Crosshair Code</div>
+  <div class="crosshair-wrap">
+    <input id="crosshairInput" class="crosshair-code" type="text" value="CSGO-s5Qbj-nvF89-cJjDd-mRdSG-5Yt4N" readonly>
+    <button class="btn" onclick="copyCrosshair()">Copiar</button>
+  </div>
+
+  <div class="section-label" style="margin-top: 48px;">Config Download</div>
+  <div class="config-dl">
+    <a href="https://settings.gg/user/1878239821/cs2" target="_blank" class="btn btn-outline">Ver no Settings.gg</a>
+  </div>
+</section>
+
+<!-- STREAM -->
+<div class="divider"></div>
+<section id="stream">
+  <div class="section-label">Live Stream</div>
+  <div class="twitch-embed-wrap">
+    <iframe src="https://player.twitch.tv/?channel=ericmansur_&parent=localhost&parent=127.0.0.1" allowfullscreen></iframe>
+  </div>
+  <div class="twitch-cta">
+    <div class="live-dot">Twitch Live</div>
+    <a href="https://www.twitch.tv/ericmansur_" target="_blank" class="btn" style="margin-top:0">Visitar Canal</a>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<div class="divider"></div>
+<section id="social">
+  <div class="section-label">Redes Sociais</div>
+  <div class="social-list">
+    <a href="https://www.twitch.tv/ericmansur_" target="_blank" class="social-item">
+      <div class="social-left">
+        <span class="social-platform">Twitch</span>
+        <span class="social-handle">ericmansur_</span>
+      </div>
+      <span class="social-arrow">→</span>
+    </a>
+    <a href="https://www.instagram.com/ericmansur_" target="_blank" class="social-item">
+      <div class="social-left">
+        <span class="social-platform">Instagram</span>
+        <span class="social-handle">@ericmansur_</span>
+      </div>
+      <span class="social-arrow">→</span>
+    </a>
+    <a href="https://www.youtube.com/@ericmansur8303" target="_blank" class="social-item">
+      <div class="social-left">
+        <span class="social-platform">YouTube</span>
+        <span class="social-handle">@ericmansur8303</span>
+      </div>
+      <span class="social-arrow">→</span>
+    </a>
+    <a href="https://steamcommunity.com/profiles/76561198959833546/" target="_blank" class="social-item">
+      <div class="social-left">
+        <span class="social-platform">Steam</span>
+        <span class="social-handle">Eric Verstappen</span>
+      </div>
+      <span class="social-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="divider"></div>
+<footer>
+  <p>Eric Verstappen &copy; 2026</p>
+  <p>CS2 · Brazil</p>
+</footer>
+
+<div class="copy-toast" id="copyToast">COPIADO!</div>
+
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('preloader').classList.add('hidden');
+    }, 2200);
+  });
+
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+  });
+
+  function animRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animRing);
+  }
+  animRing();
+
+  document.querySelectorAll('a, button, .btn, .social-item').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '6px';
+      cursor.style.height = '6px';
+      ring.style.width = '52px';
+      ring.style.height = '52px';
+      ring.style.borderColor = 'rgba(225,6,0,0.9)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '12px';
+      cursor.style.height = '12px';
+      ring.style.width = '36px';
+      ring.style.height = '36px';
+      ring.style.borderColor = 'rgba(225,6,0,0.6)';
+    });
+  });
+
+  function copyCrosshair() {
+    const val = document.getElementById('crosshairInput').value;
+    navigator.clipboard.writeText(val).catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = val;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    });
+    const toast = document.getElementById('copyToast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2000);
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.setup-card, .social-item').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = `opacity 0.6s ease ${i * 0.08}s, transform 0.6s ease ${i * 0.08}s, background 0.2s, padding-left 0.3s`;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
